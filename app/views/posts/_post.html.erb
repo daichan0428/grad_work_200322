@@ -1,0 +1,7 @@
+<div class="card mb-5">
+  <%= link_to post do %>
+  <% end %>
+  <div class="card-text">
+    <p><%= truncate(post.caption, length: 90) %></p>
+  </div>
+</div>
