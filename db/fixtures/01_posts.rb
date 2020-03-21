@@ -7,7 +7,7 @@ unless Rails.env.production?
     Array.new(POST_MAX) do |idx|
       { id: idx + 1,
         # Fakerを使って文言を用意
-        caption: Faker::Lorem.paragraph
+        mane: Faker::Lorem.paragraph
       }
     end
   end

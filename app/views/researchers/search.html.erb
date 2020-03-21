@@ -1,0 +1,18 @@
+<h2>リサーチャー検索</h2>
+<br>
+  <%= render 'search_form' %>
+<br>
+
+<table>
+  <% @researchers.each do |researcher| %>
+    <%='名前: '%><%= researcher.name %> <br>
+    <%='性別: '%><%= researcher.sex %> <br>
+    <%='年齢: '%><%= researcher.age %> <%='歳'%> <br>
+    <%='PRコメント: '%> <%= researcher.comment %> <br>
+    <%='保有スキル: '%> <%= researcher.skills.map{|skill| Skill.find(skill[:id]).name}.join(', ') %> <br>
+    <%='得意テーマ: '%> <%= researcher.themes.map{|theme| Theme.find(theme[:id]).name}.join(', ') %> <br>
+    <br>
+  <% end %>
+</table>
+
+<%= link_to 'トップ', researchers_search_path %>
