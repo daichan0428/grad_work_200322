@@ -1,0 +1,50 @@
+<%= form_with model: researcher, url: researchers_path, local:true do |f| %>
+  <div class="form-group">
+  <%= f.label :name, '名前' %>
+  <%= f.text_area :name %>
+  </div>
+  
+  <div class="form-group">
+  <%= f.label :age, '年齢' %>
+  <%= f.text_area :age %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :sex, '性別' %>
+    <%='男'%><%= f.radio_button :sex, '男' %>
+  <%='女'%><%= f.radio_button :sex, '女' %> 
+  </div> 
+
+<br>
+
+<div class="form-group">
+    <%= f.label :skill %>
+    <% @skills.each do |skill| %>
+      <%= f.check_box :skill, {multiple: true}, :id, nil %>
+      <%= skill.name %>
+    <% end %>
+  </div>
+
+
+<div class="form-group">
+    <%= f.label :theme %>
+    <% @themes.each do |theme| %>
+      <%= f.check_box :theme, {multiple: true}, :id, nil %>
+      <%= theme.name %>
+    <% end %>
+  </div>
+
+
+  <div class="form-group">
+  <%= f.label :comment, 'PRコメント' %>
+  <%= f.text_area :comment %>
+  </div> 
+
+  <p>
+    <%= f.submit class: "btn btn-block btn-primary" %>
+  </p>
+  <p>
+    <%= link_to '戻る', :back, class: "btn btn-block btn-secondary" %>
+  </p>
+
+<% end %>
